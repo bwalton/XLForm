@@ -77,6 +77,9 @@ typedef void(^XLOnChangeBlock)(id __nullable oldValue, id __nullable newValue, X
 @property (nonatomic, nonnull, strong) id hidden;
 -(BOOL)isHidden;
 
+// Temp fix for RM issues
+@property (nonatomic, nonnull, strong) id zebra;
+
 @property (getter=isRequired, nonatomic, assign) BOOL required;
 
 @property (nonatomic, nonnull, strong) XLFormAction * action;

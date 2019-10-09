@@ -442,8 +442,6 @@ NSString * const XLFormRowsKey = @"formRows";
 
 -(void)setZebra:(id)hidden
 {
-    NSLog(@"setZebra - %@", hidden);
-
     if ([_hidden isKindOfClass:[NSPredicate class]]) {
         [self.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeHidden];
     }
