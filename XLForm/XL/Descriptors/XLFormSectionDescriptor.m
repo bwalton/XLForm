@@ -432,4 +432,29 @@ NSString * const XLFormRowsKey = @"formRows";
     [self evaluateIsHidden]; // check and update if this row should be hidden.
 }
 
+
+
+#pragma mark - Temp fix for RM issues
+-(id)zebra
+{
+    return _hidden;
+}
+
+-(void)setZebra:(id)hidden
+{
+    NSLog(@"setZebra - %@", hidden);
+
+    if ([_hidden isKindOfClass:[NSPredicate class]]) {
+        [self.formDescriptor removeObserversOfObject:self predicateType:XLPredicateTypeHidden];
+    }
+    
+    _hidden = [hidden isKindOfClass:[NSString class]] ? [hidden formPredicate] : hidden;
+    if ([_hidden isKindOfClass:[NSPredicate class]]) {
+        [self.formDescriptor addObserversOfObject:self predicateType:XLPredicateTypeHidden];
+    }
+    
+    [self evaluateIsHidden]; // check and update if this row should be hidden.
+}
+
+
 @end

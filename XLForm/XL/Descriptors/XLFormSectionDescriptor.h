@@ -57,6 +57,10 @@ typedef NS_ENUM(NSUInteger, XLFormSectionInsertMode) {
 @property (nonatomic, nonnull, strong) id hidden;
 -(BOOL)isHidden;
 
+
+// Temp fix for RM issues
+@property (nonatomic, nonnull, strong) id zebra;
+
 +(nonnull instancetype)formSection;
 +(nonnull instancetype)formSectionWithTitle:(nullable NSString *)title;
 +(nonnull instancetype)formSectionWithTitle:(nullable NSString *)title multivaluedSection:(BOOL)multivaluedSection DEPRECATED_ATTRIBUTE DEPRECATED_MSG_ATTRIBUTE("Use formSectionWithTitle:sectionType: instead");
